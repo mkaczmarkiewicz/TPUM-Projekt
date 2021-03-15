@@ -4,5 +4,3 @@
 | ----------------------- | ---------------------------------------- |
 | Mateusz Kaczmarkiewicz  | `{2CCE0CF8-98EE-4CCF-8BFD-37BFDC23EF72}` |
 | Małgorzata Prociów      | `{5DF2F01A-8670-43EA-A7B0-054FB1CFEECA}` |
-
-test
