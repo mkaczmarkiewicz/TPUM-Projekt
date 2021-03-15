@@ -2,7 +2,7 @@
 
 | Name Surname (initials) | GUID                                     |
 | ----------------------- | ---------------------------------------- |
-| Mateusz Kaczmarkiewicz  | `{99ef22ba-bf4a-4369-9e6a-7ffd6ac3c6b2}` |
+| Mateusz Kaczmarkiewicz  | `{2CCE0CF8-98EE-4CCF-8BFD-37BFDC23EF72}` |
 
 # Tworzenie repozytorium - lista kontrolna
 
