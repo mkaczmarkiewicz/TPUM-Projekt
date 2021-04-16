@@ -10,7 +10,6 @@ namespace GitBay2.Data
     {
         float GetPrice();
         void SetPrice(float p);
-
         string GetName();
     }
 }

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace GitBay2.Data
 {
-    interface IAccount
+    interface IUser
     {
-        string GetName();
-        float GetBalance();
-        void ChangeBalance(float c);
+        void AddAccount(Account a);
+        Account GetAccount(string name);
     }
 }
