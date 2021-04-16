@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GitBay.Data
+namespace GitBay2.Data
 {
     interface ICurrency
-    {       
+    {
         float GetPrice();
         void SetPrice(float p);
 

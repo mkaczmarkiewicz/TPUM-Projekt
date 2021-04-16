@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Timers;
 
-using GitBay.Data;
+using GitBay2.Data;
 
-namespace GitBay.Logic
+namespace GitBay2.Logic
 {
     class MarketManager
     {
@@ -17,7 +16,7 @@ namespace GitBay.Logic
         {
             currencies = new List<ICurrency>();
         }
-       
+
         public float GetPrice(ICurrency c)
         {
             return c.GetPrice();
@@ -26,7 +25,7 @@ namespace GitBay.Logic
         public void SetPrice(ICurrency c, float p)
         {
             c.SetPrice(p);
-        }       
+        }
 
         public float GetAccountBalance(IAccount a)
         {
@@ -38,12 +37,13 @@ namespace GitBay.Logic
             a.ChangeBalance(p);
         }
 
-        public void ChangeCurrenciesValues() {
+        public void ChangeCurrenciesValues()
+        {
             Random rand = new Random();
-            float tmp = 0;            
+            float tmp = 0;
             foreach (ICurrency c in currencies)
             {
-                tmp = (((float)rand.NextDouble() * 10) - 5) * 0.01f;    
+                tmp = (((float)rand.NextDouble() * 10) - 5) * 0.01f;
                 c.SetPrice(c.GetPrice() * (1 + tmp));
                 Console.WriteLine(c.GetPrice());
             }

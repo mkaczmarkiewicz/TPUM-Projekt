@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Data\IAccount.cs" />
     <Compile Include="Data\ICurrency.cs" />
+    <Compile Include="Data\Currency.cs" />
     <Compile Include="Logic\MarketManager.cs" />
     <Compile Include="Logic\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
