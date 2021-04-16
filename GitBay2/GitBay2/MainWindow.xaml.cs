@@ -41,10 +41,15 @@ namespace GitBay2
             myMarketManager.AddCurrency(etherium);
 
             //pobranie wartości początkowych do wyświetlenia
-            currency1.Content = bitcoin.GetPrice();
-            currency2.Content = litecoin.GetPrice();
-            currency3.Content = etherium.GetPrice();
-            currency4.Content = 0;           
+            currency1val.Content = bitcoin.GetPrice();
+            currency2val.Content = litecoin.GetPrice();
+            currency3val.Content = etherium.GetPrice();
+            //currency4.Content = 0;           
+
+            //pobranie nazw wyświetlenia
+            currency1.Content = bitcoin.GetName();
+            currency2.Content = litecoin.GetName();
+            currency3.Content = etherium.GetName();
 
             //timer
             t = new System.Timers.Timer();
@@ -59,15 +64,45 @@ namespace GitBay2
             this.Dispatcher.BeginInvoke(new Action (() =>
             {
                 myMarketManager.ChangeCurrenciesValues();
-                currency1.Content = bitcoin.GetPrice();
-                currency2.Content = litecoin.GetPrice();
-                currency3.Content = etherium.GetPrice();
+                currency1val.Content = bitcoin.GetPrice();
+                currency2val.Content = litecoin.GetPrice();
+                currency3val.Content = etherium.GetPrice();
             }));
         }
 
         private void Button1Pressed(object sender, RoutedEventArgs e)
         {           
-            currency4.Content = new Random().NextDouble(); //zmienia na losowego Double po wciśnięciu przycisku
-        }        
+            //currency4.Content = new Random().NextDouble(); //zmienia na losowego Double po wciśnięciu przycisku
+        }
+
+        private void Buy_c1_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Sell_c1_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Buy_c2_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Sell_c2_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Buy_c3_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Sell_c3_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
