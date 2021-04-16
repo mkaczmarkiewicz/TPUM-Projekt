@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-
+using System.Windows;
 using GitBay2.Data;
 
 namespace GitBay2.Logic
@@ -53,5 +54,25 @@ namespace GitBay2.Logic
         {
             currencies.Add(c);
         }
+
+        public void ShowOnScreen()
+        {
+            MessageBox.Show("Button is clicked!");
+        }       
     }
 }
+
+/*public void KeepUpdating()
+        {
+            DateTime startingTime = DateTime.Now;
+            DateTime compareTime = DateTime.Now;
+            while (true)
+            {                
+                compareTime = DateTime.Now;
+                if (startingTime.AddTicks(200000) < compareTime)
+                {
+                    ChangeCurrenciesValues();
+                    startingTime = DateTime.Now;
+                }
+            }
+        }*/
