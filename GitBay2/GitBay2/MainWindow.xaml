@@ -38,6 +38,9 @@
         <!-- right side-->
         <TextBox Text="User Data" Grid.Column="2" Background="Wheat"  HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#00ABADB4" Width="55" Height="15" />
 
+        <Label Grid.Column="2" Name="currency1obt" Content="c1obt" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Height="30" Margin="13,82,0,307" VerticalAlignment="Center"/>
+        <Label Grid.Column="2" Name="currency2obt" Content="c2obt" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Height="30" Margin="13,133,0,256" VerticalAlignment="Center"/>
+        <Label Grid.Column="2" Name="currency3obt" Content="c3obt" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Height="30" Margin="13,179,0,210" VerticalAlignment="Center"/>
 
         <!--<Label Name="currency" Grid.Column="0" Content="e" Width="100" Height="40" Margin="31,33,617,354" RenderTransformOrigin="1.418,-1.077" Background="#FFAE4545"/>
         <Label Name="currency2" Grid.Column="0" Content="e" Width="100" Height="40" Margin="31,140,617,247" RenderTransformOrigin="1.418,-1.077"/>

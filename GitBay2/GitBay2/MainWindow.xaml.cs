@@ -40,16 +40,23 @@ namespace GitBay2
             myMarketManager.AddCurrency(litecoin);
             myMarketManager.AddCurrency(etherium);
 
+            //pobranie nazw wyświetlenia w currency exchange
+            currency1.Content = bitcoin.GetName();
+            currency2.Content = litecoin.GetName();
+            currency3.Content = etherium.GetName();
+
+            //pobranie nazw wyświetlenia w user data
+            currency1obt.Content = bitcoin.GetName();
+            currency2obt.Content = litecoin.GetName();
+            currency3obt.Content = etherium.GetName();
+
             //pobranie wartości początkowych do wyświetlenia
             currency1val.Content = bitcoin.GetPrice();
             currency2val.Content = litecoin.GetPrice();
             currency3val.Content = etherium.GetPrice();
             //currency4.Content = 0;           
 
-            //pobranie nazw wyświetlenia
-            currency1.Content = bitcoin.GetName();
-            currency2.Content = litecoin.GetName();
-            currency3.Content = etherium.GetName();
+            
 
             //timer
             t = new System.Timers.Timer();
