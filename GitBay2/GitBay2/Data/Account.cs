@@ -19,7 +19,7 @@ namespace GitBay2.Data
 
         public void ChangeBalance(float c)
         {
-            balance = c;
+            balance += c;
         }
 
         public float GetBalance()

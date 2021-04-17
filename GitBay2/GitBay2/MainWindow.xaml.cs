@@ -95,32 +95,56 @@ namespace GitBay2
 
         private void Buy_c1_Clicked(object sender, RoutedEventArgs e)
         {
-            myUser.GetAccount("PLN").ChangeBalance(-1 * myMarketManager.GetPrice())
+            myUser.GetAccount("PLN").ChangeBalance(- Convert.ToInt32(c1_buy_input.Text) * myMarketManager.GetPrice("BTC"));
+            currency0obt_value.Content = plnAccount.GetBalance();
+
+            myUser.GetAccount("BTC").ChangeBalance(Convert.ToInt32(c1_buy_input.Text));
+            currency1obt_value.Content = btcAccount.GetBalance();
         }
 
         private void Sell_c1_Clicked(object sender, RoutedEventArgs e)
         {
+            myUser.GetAccount("PLN").ChangeBalance(Convert.ToInt32(c1_sell_input.Text) * myMarketManager.GetPrice("BTC"));
+            currency0obt_value.Content = plnAccount.GetBalance();
 
+            myUser.GetAccount("BTC").ChangeBalance(-Convert.ToInt32(c1_sell_input.Text));
+            currency1obt_value.Content = btcAccount.GetBalance();
         }
 
         private void Buy_c2_Clicked(object sender, RoutedEventArgs e)
         {
+            myUser.GetAccount("PLN").ChangeBalance(-Convert.ToInt32(c2_buy_input.Text) * myMarketManager.GetPrice("LTC"));
+            currency0obt_value.Content = plnAccount.GetBalance();
 
+            myUser.GetAccount("LTC").ChangeBalance(Convert.ToInt32(c2_buy_input.Text));
+            currency2obt_value.Content = ltcAccount.GetBalance();
         }
 
         private void Sell_c2_Clicked(object sender, RoutedEventArgs e)
         {
+            myUser.GetAccount("PLN").ChangeBalance(Convert.ToInt32(c2_sell_input.Text) * myMarketManager.GetPrice("LTC"));
+            currency0obt_value.Content = plnAccount.GetBalance();
 
+            myUser.GetAccount("LTC").ChangeBalance(-Convert.ToInt32(c2_sell_input.Text));
+            currency2obt_value.Content = ltcAccount.GetBalance();
         }
 
         private void Buy_c3_Clicked(object sender, RoutedEventArgs e)
         {
+            myUser.GetAccount("PLN").ChangeBalance(-Convert.ToInt32(c3_buy_input.Text) * myMarketManager.GetPrice("ETH"));
+            currency0obt_value.Content = plnAccount.GetBalance();
 
+            myUser.GetAccount("ETH").ChangeBalance(Convert.ToInt32(c3_buy_input.Text));
+            currency3obt_value.Content = ethAccount.GetBalance();
         }
 
         private void Sell_c3_Clicked(object sender, RoutedEventArgs e)
         {
+            myUser.GetAccount("PLN").ChangeBalance(Convert.ToInt32(c3_sell_input.Text) * myMarketManager.GetPrice("ETH"));
+            currency0obt_value.Content = plnAccount.GetBalance();
 
+            myUser.GetAccount("ETH").ChangeBalance(-Convert.ToInt32(c3_sell_input.Text));
+            currency3obt_value.Content = ethAccount.GetBalance();
         }
     }
 }
