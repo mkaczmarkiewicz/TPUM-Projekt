@@ -4,13 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace GitBay2.Data
 {
-    class Account : IAccount
+    public class Account : IAccount
     {
         string currencyName;
         float balance;
+
+        public Account(string name, float startingBalance)
+        {
+            currencyName = name;
+            balance = startingBalance;
+        }
 
         public void ChangeBalance(float c)
         {

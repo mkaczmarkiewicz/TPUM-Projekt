@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitBay2.Data
 {
-    class User : IUser
+    public class User : IUser
     {
         List<Account> accounts;
         public User()
@@ -27,6 +27,6 @@ namespace GitBay2.Data
                     return a;
             }
             return null;
-        }
+        }        
     }
 }

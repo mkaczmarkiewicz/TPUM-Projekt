@@ -24,10 +24,16 @@ namespace GitBay2
     /// </summary>
     public partial class MainWindow : Window
     {
+        User myUser = new User();
+        Account plnAccount = new Account("PLN", 10000);
+        Account btcAccount = new Account("BTC", 0);
+        Account ltcAccount = new Account("LTC", 0);
+        Account ethAccount = new Account("ETH", 0);
+
         MarketManager myMarketManager = new MarketManager();
         Currency bitcoin = new Currency("BTC", 250);
         Currency litecoin = new Currency("LTC", 10);
-        Currency etherium = new Currency("ETH", 990);
+        Currency etherium = new Currency("ETH", 99);        
 
         System.Timers.Timer t;
                   
@@ -35,28 +41,38 @@ namespace GitBay2
         {
             InitializeComponent();
 
-            //dodanie altcoinów do marketu
+            //dodanie walut do marketu
             myMarketManager.AddCurrency(bitcoin);
             myMarketManager.AddCurrency(litecoin);
             myMarketManager.AddCurrency(etherium);
 
+            //dodanie rachunków do konta użytkownika
+            myUser.AddAccount(plnAccount);
+            myUser.AddAccount(btcAccount);
+            myUser.AddAccount(ltcAccount);
+            myUser.AddAccount(ethAccount);
+
             //pobranie nazw wyświetlenia w currency exchange
             currency1.Content = bitcoin.GetName();
             currency2.Content = litecoin.GetName();
-            currency3.Content = etherium.GetName();
-
-            //pobranie nazw wyświetlenia w user data
-            currency1obt.Content = bitcoin.GetName();
-            currency2obt.Content = litecoin.GetName();
-            currency3obt.Content = etherium.GetName();
+            currency3.Content = etherium.GetName();           
 
             //pobranie wartości początkowych do wyświetlenia
             currency1val.Content = bitcoin.GetPrice();
             currency2val.Content = litecoin.GetPrice();
             currency3val.Content = etherium.GetPrice();
-            //currency4.Content = 0;           
 
-            
+            //pobranie nazw wyświetlenia w user data
+            currency0obt.Content = plnAccount.GetName();
+            currency1obt.Content = btcAccount.GetName();
+            currency2obt.Content = ltcAccount.GetName();
+            currency3obt.Content = ethAccount.GetName();
+
+            //users initial wallet
+            currency0obt_value.Content = plnAccount.GetBalance();
+            currency1obt_value.Content = btcAccount.GetBalance();
+            currency2obt_value.Content = ltcAccount.GetBalance();
+            currency3obt_value.Content = ethAccount.GetBalance();
 
             //timer
             t = new System.Timers.Timer();
@@ -75,16 +91,11 @@ namespace GitBay2
                 currency2val.Content = litecoin.GetPrice();
                 currency3val.Content = etherium.GetPrice();
             }));
-        }
-
-        private void Button1Pressed(object sender, RoutedEventArgs e)
-        {           
-            //currency4.Content = new Random().NextDouble(); //zmienia na losowego Double po wciśnięciu przycisku
-        }
+        }        
 
         private void Buy_c1_Clicked(object sender, RoutedEventArgs e)
         {
-
+            myUser.GetAccount("PLN").ChangeBalance(-1 * myMarketManager.GetPrice())
         }
 
         private void Sell_c1_Clicked(object sender, RoutedEventArgs e)

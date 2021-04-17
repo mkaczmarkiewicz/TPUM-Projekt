@@ -18,14 +18,23 @@ namespace GitBay2.Logic
             currencies = new List<ICurrency>();
         }
 
-        public float GetPrice(ICurrency c)
+        public float GetPrice(string name)
         {
-            return c.GetPrice();
+            foreach (ICurrency c in currencies)
+            {
+                if (c.GetName() == name)
+                    return c.GetPrice();
+            }
+            return 0;
         }
 
-        public void SetPrice(ICurrency c, float p)
+        public void SetPrice(string name, float p)
         {
-            c.SetPrice(p);
+            foreach (ICurrency c in currencies)
+            {
+                if (c.GetName() == name)
+                    c.SetPrice(p);
+            }
         }
 
         public float GetAccountBalance(IAccount a)
