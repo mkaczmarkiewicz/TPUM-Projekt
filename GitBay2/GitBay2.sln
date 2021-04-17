@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBay2", "GitBay2\GitBay2.csproj", "{52BEBFFD-D26C-4E92-9486-A61C8EC26F0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBay2Tests", "GitBay2Tests\GitBay2Tests.csproj", "{35DC4E95-6B5D-43DB-AE73-16508C0267DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{52BEBFFD-D26C-4E92-9486-A61C8EC26F0E}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{52BEBFFD-D26C-4E92-9486-A61C8EC26F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52BEBFFD-D26C-4E92-9486-A61C8EC26F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35DC4E95-6B5D-43DB-AE73-16508C0267DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35DC4E95-6B5D-43DB-AE73-16508C0267DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35DC4E95-6B5D-43DB-AE73-16508C0267DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35DC4E95-6B5D-43DB-AE73-16508C0267DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

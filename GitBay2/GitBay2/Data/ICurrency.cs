@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitBay2.Data
 {
-    interface ICurrency
+    public interface ICurrency
     {
         float GetPrice();
         void SetPrice(float p);

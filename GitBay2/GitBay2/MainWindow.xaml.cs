@@ -24,16 +24,9 @@ namespace GitBay2
     /// </summary>
     public partial class MainWindow : Window
     {
-        User myUser = new User();
-        Account plnAccount = new Account("PLN", 10000);
-        Account btcAccount = new Account("BTC", 0);
-        Account ltcAccount = new Account("LTC", 0);
-        Account ethAccount = new Account("ETH", 0);
+        Model model = new Model();
 
-        MarketManager myMarketManager = new MarketManager();
-        Currency bitcoin = new Currency("BTC", 250);
-        Currency litecoin = new Currency("LTC", 10);
-        Currency etherium = new Currency("ETH", 99);        
+               
 
         System.Timers.Timer t;
                   
@@ -42,37 +35,37 @@ namespace GitBay2
             InitializeComponent();
 
             //dodanie walut do marketu
-            myMarketManager.AddCurrency(bitcoin);
-            myMarketManager.AddCurrency(litecoin);
-            myMarketManager.AddCurrency(etherium);
+            model.myMarketManager.AddCurrency(model.bitcoin);
+            model.myMarketManager.AddCurrency(model.litecoin);
+            model.myMarketManager.AddCurrency(model.etherium);
 
             //dodanie rachunków do konta użytkownika
-            myUser.AddAccount(plnAccount);
-            myUser.AddAccount(btcAccount);
-            myUser.AddAccount(ltcAccount);
-            myUser.AddAccount(ethAccount);
+            model.myUser.AddAccount(model.plnAccount);
+            model.myUser.AddAccount(model.btcAccount);
+            model.myUser.AddAccount(model.ltcAccount);
+            model.myUser.AddAccount(model.ethAccount);
 
             //pobranie nazw wyświetlenia w currency exchange
-            currency1.Content = bitcoin.GetName();
-            currency2.Content = litecoin.GetName();
-            currency3.Content = etherium.GetName();           
+            currency1.Content = model.bitcoin.GetName();
+            currency2.Content = model.litecoin.GetName();
+            currency3.Content = model.etherium.GetName();           
 
             //pobranie wartości początkowych do wyświetlenia
-            currency1val.Content = bitcoin.GetPrice();
-            currency2val.Content = litecoin.GetPrice();
-            currency3val.Content = etherium.GetPrice();
+            currency1val.Content = model.bitcoin.GetPrice();
+            currency2val.Content = model.litecoin.GetPrice();
+            currency3val.Content = model.etherium.GetPrice();
 
             //pobranie nazw wyświetlenia w user data
-            currency0obt.Content = plnAccount.GetName();
-            currency1obt.Content = btcAccount.GetName();
-            currency2obt.Content = ltcAccount.GetName();
-            currency3obt.Content = ethAccount.GetName();
+            currency0obt.Content = model.plnAccount.GetName();
+            currency1obt.Content = model.btcAccount.GetName();
+            currency2obt.Content = model.ltcAccount.GetName();
+            currency3obt.Content = model.ethAccount.GetName();
 
             //users initial wallet
-            currency0obt_value.Content = plnAccount.GetBalance();
-            currency1obt_value.Content = btcAccount.GetBalance();
-            currency2obt_value.Content = ltcAccount.GetBalance();
-            currency3obt_value.Content = ethAccount.GetBalance();
+            currency0obt_value.Content = model.plnAccount.GetBalance();
+            currency1obt_value.Content = model.btcAccount.GetBalance();
+            currency2obt_value.Content = model.ltcAccount.GetBalance();
+            currency3obt_value.Content = model.ethAccount.GetBalance();
 
             //timer
             t = new System.Timers.Timer();
@@ -86,65 +79,65 @@ namespace GitBay2
         {
             this.Dispatcher.BeginInvoke(new Action (() =>
             {
-                myMarketManager.ChangeCurrenciesValues();
-                currency1val.Content = bitcoin.GetPrice();
-                currency2val.Content = litecoin.GetPrice();
-                currency3val.Content = etherium.GetPrice();
+                model.myMarketManager.ChangeCurrenciesValues();
+                currency1val.Content = model.bitcoin.GetPrice();
+                currency2val.Content = model.litecoin.GetPrice();
+                currency3val.Content = model.etherium.GetPrice();
             }));
         }        
 
         private void Buy_c1_Clicked(object sender, RoutedEventArgs e)
         {
-            myUser.GetAccount("PLN").ChangeBalance(- Convert.ToInt32(c1_buy_input.Text) * myMarketManager.GetPrice("BTC"));
-            currency0obt_value.Content = plnAccount.GetBalance();
+            model.myUser.GetAccount("PLN").ChangeBalance(- Convert.ToInt32(c1_buy_input.Text) * model.myMarketManager.GetPrice("BTC"));
+            currency0obt_value.Content = model.plnAccount.GetBalance();
 
-            myUser.GetAccount("BTC").ChangeBalance(Convert.ToInt32(c1_buy_input.Text));
-            currency1obt_value.Content = btcAccount.GetBalance();
+            model.myUser.GetAccount("BTC").ChangeBalance(Convert.ToInt32(c1_buy_input.Text));
+            currency1obt_value.Content = model.btcAccount.GetBalance();
         }
 
         private void Sell_c1_Clicked(object sender, RoutedEventArgs e)
         {
-            myUser.GetAccount("PLN").ChangeBalance(Convert.ToInt32(c1_sell_input.Text) * myMarketManager.GetPrice("BTC"));
-            currency0obt_value.Content = plnAccount.GetBalance();
+            model.myUser.GetAccount("PLN").ChangeBalance(Convert.ToInt32(c1_sell_input.Text) * model.myMarketManager.GetPrice("BTC"));
+            currency0obt_value.Content = model.plnAccount.GetBalance();
 
-            myUser.GetAccount("BTC").ChangeBalance(-Convert.ToInt32(c1_sell_input.Text));
-            currency1obt_value.Content = btcAccount.GetBalance();
+            model.myUser.GetAccount("BTC").ChangeBalance(-Convert.ToInt32(c1_sell_input.Text));
+            currency1obt_value.Content = model.btcAccount.GetBalance();
         }
 
         private void Buy_c2_Clicked(object sender, RoutedEventArgs e)
         {
-            myUser.GetAccount("PLN").ChangeBalance(-Convert.ToInt32(c2_buy_input.Text) * myMarketManager.GetPrice("LTC"));
-            currency0obt_value.Content = plnAccount.GetBalance();
+            model.myUser.GetAccount("PLN").ChangeBalance(-Convert.ToInt32(c2_buy_input.Text) * model.myMarketManager.GetPrice("LTC"));
+            currency0obt_value.Content = model.plnAccount.GetBalance();
 
-            myUser.GetAccount("LTC").ChangeBalance(Convert.ToInt32(c2_buy_input.Text));
-            currency2obt_value.Content = ltcAccount.GetBalance();
+            model.myUser.GetAccount("LTC").ChangeBalance(Convert.ToInt32(c2_buy_input.Text));
+            currency2obt_value.Content = model.ltcAccount.GetBalance();
         }
 
         private void Sell_c2_Clicked(object sender, RoutedEventArgs e)
         {
-            myUser.GetAccount("PLN").ChangeBalance(Convert.ToInt32(c2_sell_input.Text) * myMarketManager.GetPrice("LTC"));
-            currency0obt_value.Content = plnAccount.GetBalance();
+            model.myUser.GetAccount("PLN").ChangeBalance(Convert.ToInt32(c2_sell_input.Text) * model.myMarketManager.GetPrice("LTC"));
+            currency0obt_value.Content = model.plnAccount.GetBalance();
 
-            myUser.GetAccount("LTC").ChangeBalance(-Convert.ToInt32(c2_sell_input.Text));
-            currency2obt_value.Content = ltcAccount.GetBalance();
+            model.myUser.GetAccount("LTC").ChangeBalance(-Convert.ToInt32(c2_sell_input.Text));
+            currency2obt_value.Content = model.ltcAccount.GetBalance();
         }
 
         private void Buy_c3_Clicked(object sender, RoutedEventArgs e)
         {
-            myUser.GetAccount("PLN").ChangeBalance(-Convert.ToInt32(c3_buy_input.Text) * myMarketManager.GetPrice("ETH"));
-            currency0obt_value.Content = plnAccount.GetBalance();
+            model.myUser.GetAccount("PLN").ChangeBalance(-Convert.ToInt32(c3_buy_input.Text) * model.myMarketManager.GetPrice("ETH"));
+            currency0obt_value.Content = model.plnAccount.GetBalance();
 
-            myUser.GetAccount("ETH").ChangeBalance(Convert.ToInt32(c3_buy_input.Text));
-            currency3obt_value.Content = ethAccount.GetBalance();
+            model.myUser.GetAccount("ETH").ChangeBalance(Convert.ToInt32(c3_buy_input.Text));
+            currency3obt_value.Content = model.ethAccount.GetBalance();
         }
 
         private void Sell_c3_Clicked(object sender, RoutedEventArgs e)
         {
-            myUser.GetAccount("PLN").ChangeBalance(Convert.ToInt32(c3_sell_input.Text) * myMarketManager.GetPrice("ETH"));
-            currency0obt_value.Content = plnAccount.GetBalance();
+            model.myUser.GetAccount("PLN").ChangeBalance(Convert.ToInt32(c3_sell_input.Text) * model.myMarketManager.GetPrice("ETH"));
+            currency0obt_value.Content = model.plnAccount.GetBalance();
 
-            myUser.GetAccount("ETH").ChangeBalance(-Convert.ToInt32(c3_sell_input.Text));
-            currency3obt_value.Content = ethAccount.GetBalance();
+            model.myUser.GetAccount("ETH").ChangeBalance(-Convert.ToInt32(c3_sell_input.Text));
+            currency3obt_value.Content = model.ethAccount.GetBalance();
         }
     }
 }
