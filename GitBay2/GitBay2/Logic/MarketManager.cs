@@ -13,9 +13,13 @@ namespace GitBay2.Logic
     {
         List<ICurrency> currencies;
 
+        public User user;
+
         public MarketManager()
         {
             currencies = new List<ICurrency>();
+
+            user = new User();
         }
 
         public float GetPrice(string name)
@@ -64,26 +68,40 @@ namespace GitBay2.Logic
             currencies.Add(c);
         }
 
+        public void AddCurrency(string name, float price)
+        {
+            currencies.Add(new Currency(name, price));
+        }
+
+        public void AddAccount(string name, float balance)
+        {
+            user.AddAccount(new Account(name, balance));
+        }
+
         public void ShowOnScreen()
         {
             MessageBox.Show("Button is clicked!");
         }  
         
-        public void Customer_Account_Init(int pln, int btc, int ltc, int eth)
+        public string GetCurrencyName(int i)
         {
-            User myUser = new User();
-            Account plnAccount = new Account("PLN", pln);
-            Account btcAccount = new Account("BTC", btc);
-            Account ltcAccount = new Account("LTC", ltc);
-            Account ethAccount = new Account("ETH", eth);
+            return currencies[i].GetName();
         }
 
-        public void Market_Init(int btc, int ltc, int eth)
+        public string GetAccountName(int i)
         {
-            Currency bitcoin = new Currency("BTC", btc);
-            Currency litecoin = new Currency("LTC", ltc);
-            Currency etherium = new Currency("ETH", eth);
-         }
+            return user.GetAccountName(i);
+        }
+
+        public float GetCurrencyPrice(int i)
+        {
+            return currencies[i].GetPrice();
+        }
+
+        public float GetAccountBalance(int i)
+        {
+            return user.GetAccountBalance(i);
+        }
     }
 }
 

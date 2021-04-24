@@ -27,6 +27,16 @@ namespace GitBay2.Data
                     return a;
             }
             return null;
-        }        
+        }
+
+        public string GetAccountName(int i)
+        {
+            return accounts[i].GetName();
+        }
+
+        public float GetAccountBalance(int i)
+        {
+            return accounts[i].GetBalance();
+        }
     }
 }
