@@ -1,5 +1,4 @@
-﻿using GitBay2.Logic;
-using GitBay2.Data;
+﻿using GitBay2.Presentation;
 using System;
 using System.Collections.Generic;
 using System.Linq;

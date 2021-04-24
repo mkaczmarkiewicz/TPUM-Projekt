@@ -67,7 +67,23 @@ namespace GitBay2.Logic
         public void ShowOnScreen()
         {
             MessageBox.Show("Button is clicked!");
-        }       
+        }  
+        
+        public void Customer_Account_Init(int pln, int btc, int ltc, int eth)
+        {
+            User myUser = new User();
+            Account plnAccount = new Account("PLN", pln);
+            Account btcAccount = new Account("BTC", btc);
+            Account ltcAccount = new Account("LTC", ltc);
+            Account ethAccount = new Account("ETH", eth);
+        }
+
+        public void Market_Init(int btc, int ltc, int eth)
+        {
+            Currency bitcoin = new Currency("BTC", btc);
+            Currency litecoin = new Currency("LTC", ltc);
+            Currency etherium = new Currency("ETH", eth);
+         }
     }
 }
 
