@@ -13,7 +13,7 @@ namespace GitBay2.Logic
     {
         List<ICurrency> currencies;
 
-        public User user;
+        public IUser user;
 
         public MarketManager()
         {
