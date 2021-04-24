@@ -102,6 +102,16 @@ namespace GitBay2.Logic
         {
             return user.GetAccountBalance(i);
         }
+
+        public void PLNExchange(float f)
+        {
+            user.GetAccount("PLN").ChangeBalance(f);
+        }
+
+        public void CurrencyExchange(float f, string cryptoName)
+        {
+            user.GetAccount(cryptoName).ChangeBalance(f);
+        }
     }
 }
 

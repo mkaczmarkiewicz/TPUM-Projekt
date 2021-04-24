@@ -85,35 +85,35 @@ namespace GitBay2
 
         private void Sell_c1_Clicked(object sender, RoutedEventArgs e)
         {
-            viewModel.SellCrypto(c1_buy_input.Text, "BTC");
+            viewModel.SellCrypto(c1_sell_input.Text, "BTC");
             currency0obt_value.Content = viewModel.FetchAccountBalance(0);
             currency1obt_value.Content = viewModel.FetchAccountBalance(1);
         }
 
         private void Buy_c2_Clicked(object sender, RoutedEventArgs e)
         {
-            viewModel.BuyCrypto(c1_buy_input.Text, "LTC");
+            viewModel.BuyCrypto(c2_buy_input.Text, "LTC");
             currency0obt_value.Content = viewModel.FetchAccountBalance(0);
             currency2obt_value.Content = viewModel.FetchAccountBalance(2);
         }
 
         private void Sell_c2_Clicked(object sender, RoutedEventArgs e)
         {
-            viewModel.SellCrypto(c1_buy_input.Text, "LTC");
+            viewModel.SellCrypto(c2_sell_input.Text, "LTC");
             currency0obt_value.Content = viewModel.FetchAccountBalance(0);
             currency2obt_value.Content = viewModel.FetchAccountBalance(2);
         }
 
         private void Buy_c3_Clicked(object sender, RoutedEventArgs e)
         {
-            viewModel.BuyCrypto(c1_buy_input.Text, "ETH");
+            viewModel.BuyCrypto(c3_buy_input.Text, "ETH");
             currency0obt_value.Content = viewModel.FetchAccountBalance(0);
             currency3obt_value.Content = viewModel.FetchAccountBalance(3);
         }
 
         private void Sell_c3_Clicked(object sender, RoutedEventArgs e)
         {
-            viewModel.SellCrypto(c1_buy_input.Text, "ETH");
+            viewModel.SellCrypto(c3_sell_input.Text, "ETH");
             currency0obt_value.Content = viewModel.FetchAccountBalance(0);
             currency3obt_value.Content = viewModel.FetchAccountBalance(3);
         }

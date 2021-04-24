@@ -80,17 +80,18 @@ namespace GitBay2.Presentation
         }*/
 
         public void Buy(int amount, string cryptoName)
-        {           
-            myMarketManager.user.GetAccount("PLN").ChangeBalance(-Convert.ToInt32(amount) * myMarketManager.GetPrice(cryptoName));
+        {
+            myMarketManager.PLNExchange(-Convert.ToInt32(amount) * myMarketManager.GetPrice(cryptoName));
 
-            myMarketManager.user.GetAccount(cryptoName).ChangeBalance(Convert.ToInt32(amount));
+            myMarketManager.CurrencyExchange(Convert.ToInt32(amount), cryptoName);
+            
         }
 
         public void Sell(int amount, string cryptoName)
         {
-            myMarketManager.user.GetAccount("PLN").ChangeBalance(Convert.ToInt32(amount) * myMarketManager.GetPrice(cryptoName));
+            myMarketManager.PLNExchange(Convert.ToInt32(amount) * myMarketManager.GetPrice(cryptoName));
 
-            myMarketManager.user.GetAccount(cryptoName).ChangeBalance(-Convert.ToInt32(amount));
+            myMarketManager.CurrencyExchange(-Convert.ToInt32(amount), cryptoName);
         }
     }
 }
