@@ -67,8 +67,8 @@
     <Compile Include="Data\Currency.cs" />
     <Compile Include="Data\IAccount.cs" />
     <Compile Include="Data\ICurrency.cs" />
-    <Compile Include="Data\IUser.cs" />
-    <Compile Include="Data\User.cs" />
+    <Compile Include="Logic\IUser.cs" />
+    <Compile Include="Logic\User.cs" />
     <Compile Include="Logic\MarketManager.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

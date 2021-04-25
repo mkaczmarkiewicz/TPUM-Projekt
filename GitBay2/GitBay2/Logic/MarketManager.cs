@@ -15,11 +15,11 @@ namespace GitBay2.Logic
 
         public IUser user;
 
-        public MarketManager()
+        public MarketManager(IUser _user)
         {
             currencies = new List<ICurrency>();
 
-            user = new User();
+            user = _user;
         }
 
         public float GetPrice(string name)
@@ -112,10 +112,8 @@ namespace GitBay2.Logic
         {
             user.GetAccount(cryptoName).ChangeBalance(f);
         }
-    }
-}
 
-/*public void KeepUpdating()
+        /*public void KeepUpdating()
         {
             DateTime startingTime = DateTime.Now;
             DateTime compareTime = DateTime.Now;
@@ -129,3 +127,12 @@ namespace GitBay2.Logic
                 }
             }
         }*/
+
+        public MarketManager()
+        {
+            user = new User();
+        }
+    }
+}
+
+

@@ -22,7 +22,7 @@ namespace GitBay2.Presentation
 
         public Model()
         {
-            myMarketManager = new MarketManager();
+            myMarketManager = new MarketManager(new User());
         }
 
         public void IniCourses(int btcCourse, int ltcCourse, int ethCourse)
