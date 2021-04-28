@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitBay2.Data
 {
-    public class Account : IAccount
+    public class Account : AAccount
     {
         string currencyName;
         float balance;
@@ -17,17 +17,17 @@ namespace GitBay2.Data
             balance = startingBalance;
         }
 
-        public void ChangeBalance(float c)
+        override public void ChangeBalance(float c)
         {
             balance += c;
         }
 
-        public float GetBalance()
+        override public float GetBalance()
         {
             return balance;
         }
 
-        public string GetName()
+        override public string GetName()
         {
             return currencyName;
         }

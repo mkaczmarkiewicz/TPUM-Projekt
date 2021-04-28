@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GitBay2.Data;
 
-namespace GitBay2.Logic
+namespace GitBay2.Data
 {
-    public class User : IUser
+    public class User : AUser
     {
         List<Account> accounts;
         public User()
@@ -15,12 +14,12 @@ namespace GitBay2.Logic
             accounts = new List<Account>();
         }
 
-        public void AddAccount(Account a)
+        override public void AddAccount(Account a)
         {
             accounts.Add(a);
         }
 
-        public Account GetAccount(string name)
+        override public Account GetAccount(string name)
         {           
             foreach(Account a in accounts)
             {
@@ -30,12 +29,12 @@ namespace GitBay2.Logic
             return null;
         }
 
-        public string GetAccountName(int i)
+        override public string GetAccountName(int i)
         {
             return accounts[i].GetName();
         }
 
-        public float GetAccountBalance(int i)
+        override public float  GetAccountBalance(int i)
         {
             return accounts[i].GetBalance();
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitBay2.Data
 {
-    public class Currency : ICurrency
+    public class Currency : ACurrency
     {
         string name;
         float price;
@@ -17,17 +17,17 @@ namespace GitBay2.Data
             this.price = price;
         }
 
-        public float GetPrice()
+        override public float GetPrice()
         {
             return price;
         }
 
-        public void SetPrice(float p)
+        override public void SetPrice(float p)
         {
             price = p;
         }
 
-        public string GetName()
+        override public string GetName()
         {
             return name;
         }

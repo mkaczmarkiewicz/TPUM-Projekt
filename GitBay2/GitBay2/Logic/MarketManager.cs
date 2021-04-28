@@ -11,20 +11,26 @@ namespace GitBay2.Logic
 {
     public class MarketManager
     {
-        List<ICurrency> currencies;
+        List<ACurrency> currencies;
 
-        public IUser user;
+        public AUser user;
 
-        public MarketManager(IUser _user)
+        public MarketManager(AUser _user)
         {
-            currencies = new List<ICurrency>();
+            currencies = new List<ACurrency>();
 
             user = _user;
+        }
+        public MarketManager()
+        {
+            currencies = new List<ACurrency>();
+
+            user = AUser.CreateUser();
         }
 
         public float GetPrice(string name)
         {
-            foreach (ICurrency c in currencies)
+            foreach (ACurrency c in currencies)
             {
                 if (c.GetName() == name)
                     return c.GetPrice();
@@ -34,19 +40,19 @@ namespace GitBay2.Logic
 
         public void SetPrice(string name, float p)
         {
-            foreach (ICurrency c in currencies)
+            foreach (ACurrency c in currencies)
             {
                 if (c.GetName() == name)
                     c.SetPrice(p);
             }
         }
 
-        public float GetAccountBalance(IAccount a)
+        public float GetAccountBalance(AAccount a)
         {
             return a.GetBalance();
         }
 
-        public void ChangeAccountBalance(IAccount a, float p)
+        public void ChangeAccountBalance(AAccount a, float p)
         {
             a.ChangeBalance(p);
         }
@@ -55,7 +61,7 @@ namespace GitBay2.Logic
         {
             Random rand = new Random();
             float tmp = 0;
-            foreach (ICurrency c in currencies)
+            foreach (ACurrency c in currencies)
             {
                 tmp = (((float)rand.NextDouble() * 10) - 5) * 0.01f;
                 c.SetPrice(c.GetPrice() * (1 + tmp));
@@ -63,19 +69,19 @@ namespace GitBay2.Logic
             }
         }
 
-        public void AddCurrency(ICurrency c)
+        public void AddCurrency(ACurrency c)
         {
             currencies.Add(c);
         }
 
         public void AddCurrency(string name, float price)
         {
-            currencies.Add(new Currency(name, price));
+            currencies.Add(ACurrency.CreateCurrency(name, price));
         }
 
         public void AddAccount(string name, float balance)
         {
-            user.AddAccount(new Account(name, balance));
+            user.AddAccount(AAccount.CreateAccount(name, balance));
         }
 
         public void ShowOnScreen()
@@ -128,10 +134,7 @@ namespace GitBay2.Logic
             }
         }*/
 
-        public MarketManager()
-        {
-            user = new User();
-        }
+        
     }
 }
 
