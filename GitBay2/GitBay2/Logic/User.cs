@@ -9,10 +9,10 @@ namespace GitBay2.Logic
 {
     public class User : AUser
     {
-        List<Account> accounts;
+        List<AAccount> accounts;
         public User()
         {
-            accounts = new List<Account>();
+            accounts = new List<AAccount>();
         }
 
         override public void AddAccount(Account a)
