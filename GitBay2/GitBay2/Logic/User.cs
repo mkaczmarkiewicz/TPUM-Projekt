@@ -15,14 +15,14 @@ namespace GitBay2.Logic
             accounts = new List<AAccount>();
         }
 
-        override public void AddAccount(Account a)
+        override public void AddAccount(AAccount a)
         {
             accounts.Add(a);
         }
 
-        override public Account GetAccount(string name)
+        override public AAccount GetAccount(string name)
         {           
-            foreach(Account a in accounts)
+            foreach(AAccount a in accounts)
             {
                 if (a.GetName() == name)
                     return a;

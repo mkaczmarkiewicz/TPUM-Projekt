@@ -9,14 +9,14 @@ namespace GitBay2.Logic
 {
     public abstract class AUser
     {
-        public abstract void AddAccount(Account a);
-        public abstract Account GetAccount(string name);
+        public abstract void AddAccount(AAccount a);
+        public abstract AAccount GetAccount(string name);
 
         public abstract string GetAccountName(int i);
 
         public abstract float GetAccountBalance(int i);
 
-        public static User CreateUser()
+        public static AUser CreateUser()
         {
             return new User();
         }
