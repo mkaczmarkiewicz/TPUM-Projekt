@@ -9,7 +9,7 @@ namespace GitBay2.Presentation
 {
     public class Model
     {
-        MarketManager myMarketManager;
+        AMarketManager myMarketManager;
 
         public int btcCourse = 250;
         public int ltcCourse = 10;
@@ -22,7 +22,7 @@ namespace GitBay2.Presentation
 
         public Model()
         {
-            myMarketManager = new MarketManager(new User());
+            myMarketManager = AMarketManager.CreateMarketManager(AUser.CreateUser());
         }
 
         public void IniCourses(int btcCourse, int ltcCourse, int ethCourse)

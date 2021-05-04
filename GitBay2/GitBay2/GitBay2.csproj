@@ -67,6 +67,7 @@
     <Compile Include="Data\Currency.cs" />
     <Compile Include="Data\AAccount.cs" />
     <Compile Include="Data\ACurrency.cs" />
+    <Compile Include="Logic\AMarketManager.cs" />
     <Compile Include="Logic\AUser.cs" />
     <Compile Include="Logic\User.cs" />
     <Compile Include="Logic\MarketManager.cs" />

@@ -9,7 +9,7 @@ using GitBay2.Data;
 
 namespace GitBay2.Logic
 {
-    public class MarketManager
+    public class MarketManager : AMarketManager
     {
         List<ACurrency> currencies;
 
@@ -28,7 +28,7 @@ namespace GitBay2.Logic
             user = AUser.CreateUser();
         }
 
-        public float GetPrice(string name)
+        override public float GetPrice(string name)
         {
             foreach (ACurrency c in currencies)
             {
@@ -57,7 +57,7 @@ namespace GitBay2.Logic
             a.ChangeBalance(p);
         }
 
-        public void ChangeCurrenciesValues()
+        override public void ChangeCurrenciesValues()
         {
             Random rand = new Random();
             float tmp = 0;
@@ -74,12 +74,12 @@ namespace GitBay2.Logic
             currencies.Add(c);
         }
 
-        public void AddCurrency(string name, float price)
+        override public void AddCurrency(string name, float price)
         {
             currencies.Add(ACurrency.CreateCurrency(name, price));
         }
 
-        public void AddAccount(string name, float balance)
+        override public void AddAccount(string name, float balance)
         {
             user.AddAccount(AAccount.CreateAccount(name, balance));
         }
@@ -87,34 +87,34 @@ namespace GitBay2.Logic
         public void ShowOnScreen()
         {
             MessageBox.Show("Button is clicked!");
-        }  
-        
-        public string GetCurrencyName(int i)
+        }
+
+        override public string GetCurrencyName(int i)
         {
             return currencies[i].GetName();
         }
 
-        public string GetAccountName(int i)
+        override public string GetAccountName(int i)
         {
             return user.GetAccountName(i);
         }
 
-        public float GetCurrencyPrice(int i)
+        override public float GetCurrencyPrice(int i)
         {
             return currencies[i].GetPrice();
         }
 
-        public float GetAccountBalance(int i)
+        override public float GetAccountBalance(int i)
         {
             return user.GetAccountBalance(i);
         }
 
-        public void PLNExchange(float f)
+        override public void PLNExchange(float f)
         {
             user.GetAccount("PLN").ChangeBalance(f);
         }
 
-        public void CurrencyExchange(float f, string cryptoName)
+        override public void CurrencyExchange(float f, string cryptoName)
         {
             user.GetAccount(cryptoName).ChangeBalance(f);
         }
