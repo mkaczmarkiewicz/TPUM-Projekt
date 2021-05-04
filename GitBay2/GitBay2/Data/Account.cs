@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitBay2.Data
 {
-    public class Account : AAccount
+    internal class Account : AAccount
     {
         string currencyName;
         float balance;

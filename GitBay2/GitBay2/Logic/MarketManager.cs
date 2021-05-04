@@ -9,7 +9,7 @@ using GitBay2.Data;
 
 namespace GitBay2.Logic
 {
-    public class MarketManager : AMarketManager
+    internal class MarketManager : AMarketManager
     {
         List<ACurrency> currencies;
 

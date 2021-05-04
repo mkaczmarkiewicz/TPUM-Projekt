@@ -12,7 +12,7 @@ namespace GitBay2.Data
         public abstract void SetPrice(float p);
         public abstract string GetName();
 
-        public static Currency CreateCurrency(string name, float price)
+        public static ACurrency CreateCurrency(string name, float price)
         {
             return new Currency(name, price);
         }

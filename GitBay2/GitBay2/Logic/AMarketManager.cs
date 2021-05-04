@@ -9,7 +9,7 @@ namespace GitBay2.Logic
 {
     public abstract class AMarketManager
     {
-        public static MarketManager CreateMarketManager(AUser _user)
+        public static AMarketManager CreateMarketManager(AUser _user)
         {
             return new MarketManager(_user);
         }

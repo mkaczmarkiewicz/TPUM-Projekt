@@ -7,7 +7,7 @@ using GitBay2.Data;
 
 namespace GitBay2.Logic
 {
-    public class User : AUser
+    internal class User : AUser
     {
         List<AAccount> accounts;
         public User()

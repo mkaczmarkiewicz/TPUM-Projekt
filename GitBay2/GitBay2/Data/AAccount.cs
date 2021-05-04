@@ -12,7 +12,7 @@ namespace GitBay2.Data
         public abstract float GetBalance();
         public abstract void ChangeBalance(float c);
 
-        public static Account CreateAccount(string name, float startingBalance)
+        public static AAccount CreateAccount(string name, float startingBalance)
         {
             return new Account(name, startingBalance);
         }
