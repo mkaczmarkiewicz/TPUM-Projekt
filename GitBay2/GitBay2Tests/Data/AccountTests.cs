@@ -14,7 +14,7 @@ namespace GitBay2.Data.Tests
         [TestMethod()]
         public void ChangeBalanceTest()
         {
-            Account a = new Account("PLN", 0);
+            AAccount a = AAccount.CreateAccount("PLN", 0);
             float change = 1;
 
             a.ChangeBalance(change);

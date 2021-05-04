@@ -15,8 +15,8 @@ namespace GitBay2.Logic.Tests
         [TestMethod()]
         public void GetPriceTest()
         {
-            MarketManager m = new MarketManager(new User());
-            m.AddCurrency(new Currency("PLN", 0));
+            AMarketManager m = AMarketManager.CreateMarketManager(AUser.CreateUser());
+            m.AddCurrency("PLN", 0);
 
             float expectedValue = 0;
 
