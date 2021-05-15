@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBay2", "GitBay2\GitBay2.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBay2Tests", "GitBay2Tests\GitBay2Tests.csproj", "{35DC4E95-6B5D-43DB-AE73-16508C0267DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Server\Client.csproj", "{0D76761A-936E-4CB0-8C7E-81AE23DD1301}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{51067693-7A98-4A5F-8306-EF5E557FD3A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{35DC4E95-6B5D-43DB-AE73-16508C0267DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35DC4E95-6B5D-43DB-AE73-16508C0267DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35DC4E95-6B5D-43DB-AE73-16508C0267DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D76761A-936E-4CB0-8C7E-81AE23DD1301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D76761A-936E-4CB0-8C7E-81AE23DD1301}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D76761A-936E-4CB0-8C7E-81AE23DD1301}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D76761A-936E-4CB0-8C7E-81AE23DD1301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51067693-7A98-4A5F-8306-EF5E557FD3A4}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{51067693-7A98-4A5F-8306-EF5E557FD3A4}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{51067693-7A98-4A5F-8306-EF5E557FD3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51067693-7A98-4A5F-8306-EF5E557FD3A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
