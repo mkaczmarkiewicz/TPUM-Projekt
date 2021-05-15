@@ -67,14 +67,16 @@
     <Compile Include="Data\ClientAccount.cs" />
     <Compile Include="Data\ClientACurrency.cs" />
     <Compile Include="Data\ClientCurrency.cs" />
+    <Compile Include="Logic\ClientAMarketManager.cs" />
+    <Compile Include="Logic\ClientMarketManager.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presentation\Model.cs" />
-    <Compile Include="Presentation\ViewModel.cs" />
+    <Compile Include="Presentation\ClientModel.cs" />
+    <Compile Include="Presentation\ClientViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -100,8 +102,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Logic\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

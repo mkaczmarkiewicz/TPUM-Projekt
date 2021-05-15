@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Client.Presentation
 {
-    class ViewModel
+    class ClientViewModel
     {
-        Model model = new Model();
+        ClientModel model = new ClientModel();
 
         public void BuyCrypto(string price, string currencyName)
         {

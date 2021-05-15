@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Client.Presentation
 {
-    class Model
+    class ClientModel
     {
         AMarketManager myMarketManager;
 
-        public Model()
+        public ClientModel()
         {
-            myMarketManager = AMarketManager.CreateMarketManager(AUser.CreateUser());
+            ///myMarketManager = AMarketManager.CreateMarketManager(AUser.CreateUser());
         }
 
         public void Buy(int amount, string cryptoName)
