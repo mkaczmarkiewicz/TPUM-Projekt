@@ -14,23 +14,14 @@
         </Grid.ColumnDefinitions>
         <!-- left side-->
         <TextBox Text="Currency Exchange" Grid.Column="0" Background="SandyBrown"  HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#00ABADB4" Width="Auto" />
-
-        <Label Grid.Column="0" Name="currency1" Content="c1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="14,133,0,256" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Height="30"/>
-        <Label Grid.Column="0" Name="currency1val" Content="c1val" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="83,133,0,256" Height="30" VerticalContentAlignment="Center"/>
         <TextBox Grid.Column="0" Name="c1_buy_input" AcceptsReturn="True" Height="30" Width="100" Margin="163,133,247,256" BorderBrush="#00ABADB3" TextAlignment="Right"/>
         <Button Grid.Column="0" x:Name="Buy_c1" Background="Aquamarine" Padding="5"  Content="Buy" Click="Buy_c1_Clicked" Width="52" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" BorderBrush="#00A80202" Margin="269,133,189,256"/>
         <TextBox Grid.Column="0" Name="c1_sell_input" AcceptsReturn="True" Height="30" Width="100" Margin="343,133,67,256" BorderBrush="#00ABADB3" TextAlignment="Right"/>
         <Button Grid.Column="0" x:Name="Sell_c1" Background="Tomato" Padding="5" Content="Sell" Click="Sell_c1_Clicked" Width="52" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" BorderBrush="#00707070" Margin="448,133,10,256"/>
-
-        <Label Grid.Column="0" Name="currency2" Content="c2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="14,169,0,220" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Height="30"/>
-        <Label Grid.Column="0" Name="currency2val" Content="c2val" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="83,169,0,220" Height="30" VerticalContentAlignment="Center"/>
         <TextBox Grid.Column="0" Name="c2_buy_input" AcceptsReturn="True" Height="30" Width="100" Margin="163,169,247,220" BorderBrush="#00ABADB3" TextAlignment="Right"/>
         <Button Grid.Column="0" x:Name="Buy_c2" Background="Aquamarine" Padding="5" Content="Buy" Click="Buy_c2_Clicked" Width="52" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" BorderBrush="#00707070" Margin="269,169,189,220"/>
         <TextBox Grid.Column="0" Name="c2_sell_input" AcceptsReturn="True" Height="30" Width="100" Margin="343,169,67,220" BorderBrush="#00ABADB3" TextAlignment="Right"/>
         <Button Grid.Column="0" x:Name="Sell_c2" Background="Tomato" Padding="5" Content="Sell" Click="Sell_c2_Clicked" Width="52" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" BorderBrush="#00707070" Margin="448,169,10,220"/>
-
-        <Label Grid.Column="0" Name="currency3" Content="c3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="14,207,0,182" VerticalContentAlignment="Center" FontWeight="Bold" Height="30"/>
-        <Label Grid.Column="0" Name="currency3val" Content="c3val" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="83,207,0,182" Height="30" VerticalContentAlignment="Center"/>
         <TextBox Grid.Column="0" Name="c3_buy_input" AcceptsReturn="True" Height="30" Width="100" Margin="163,207,247,182" BorderBrush="#00ABADB3" TextAlignment="Right"/>
         <Button Grid.Column="0" x:Name="Buy_c3" Background="Aquamarine" Padding="5" Content="Buy" Click="Buy_c3_Clicked" Width="52" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" BorderBrush="#00707070" Margin="269,207,189,182"/>
         <TextBox Grid.Column="0" Name="c3_sell_input" AcceptsReturn="True" Height="30" Width="100" Margin="343,207,67,182" BorderBrush="#00ABADB3" TextAlignment="Right"/>

@@ -6,26 +6,40 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using GitBay2.Data;
+using WebSocketSharp;
+using WebSocketSharp.Server;
 
 namespace GitBay2.Logic
 {
     internal class MarketManager : AMarketManager
     {
-        List<ACurrency> currencies;
+        List<ACurrency> currencies;       
 
-        public AUser user;
-
-        public MarketManager(AUser _user)
-        {
-            currencies = new List<ACurrency>();
-
-            user = _user;
-        }
         public MarketManager()
         {
             currencies = new List<ACurrency>();
+            StartServer();
+        }
 
-            user = AUser.CreateUser();
+        public class Echo : WebSocketBehavior
+        {
+            protected override void OnMessage(MessageEventArgs e)
+            {
+                Console.WriteLine("Server: I received message: " + e.Data);
+                Send(e.Data);
+            }
+        }
+
+        private void StartServer()
+        {
+            WebSocketServer wsserv = new WebSocketServer("ws://127.0.0.1:7890");
+
+            wsserv.AddWebSocketService<Echo>("/Echo");
+
+            wsserv.Start();
+            Console.WriteLine("Server started at " + wsserv.Port);
+            Console.ReadLine();
+            wsserv.Stop();
         }
 
         override public float GetPrice(string name)
@@ -61,11 +75,14 @@ namespace GitBay2.Logic
         {
             Random rand = new Random();
             float tmp = 0;
-            foreach (ACurrency c in currencies)
+            if (currencies.Count > 0)
             {
-                tmp = (((float)rand.NextDouble() * 10) - 5) * 0.01f;
-                c.SetPrice(c.GetPrice() * (1 + tmp));
-                Console.WriteLine(c.GetPrice());
+                foreach (ACurrency c in currencies)
+                {
+                    tmp = (((float)rand.NextDouble() * 10) - 5) * 0.01f;
+                    c.SetPrice(c.GetPrice() * (1 + tmp));
+                    //Console.WriteLine(c.GetPrice());
+                }
             }
         }
 
@@ -77,12 +94,7 @@ namespace GitBay2.Logic
         override public void AddCurrency(string name, float price)
         {
             currencies.Add(ACurrency.CreateCurrency(name, price));
-        }
-
-        override public void AddAccount(string name, float balance)
-        {
-            user.AddAccount(AAccount.CreateAccount(name, balance));
-        }
+        }       
 
         public void ShowOnScreen()
         {
@@ -92,23 +104,15 @@ namespace GitBay2.Logic
         override public string GetCurrencyName(int i)
         {
             return currencies[i].GetName();
-        }
-
-        override public string GetAccountName(int i)
-        {
-            return user.GetAccountName(i);
-        }
+        }      
 
         override public float GetCurrencyPrice(int i)
         {
             return currencies[i].GetPrice();
         }
 
-        override public float GetAccountBalance(int i)
-        {
-            return user.GetAccountBalance(i);
-        }
 
+        /*
         override public void PLNExchange(float f)
         {
             user.GetAccount("PLN").ChangeBalance(f);
@@ -117,7 +121,9 @@ namespace GitBay2.Logic
         override public void CurrencyExchange(float f, string cryptoName)
         {
             user.GetAccount(cryptoName).ChangeBalance(f);
-        }
+        } */
+
+
 
         /*public void KeepUpdating()
         {

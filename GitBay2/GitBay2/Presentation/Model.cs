@@ -22,7 +22,7 @@ namespace GitBay2.Presentation
 
         public Model()
         {
-            myMarketManager = AMarketManager.CreateMarketManager(AUser.CreateUser());
+            myMarketManager = AMarketManager.CreateMarketManager();
         }
 
         public void IniCourses(int btcCourse, int ltcCourse, int ethCourse)
@@ -32,33 +32,33 @@ namespace GitBay2.Presentation
             myMarketManager.AddCurrency("ETH", ethCourse);
         }
         
-        public void InitCustomer(int startingPLN, int startingBTC, int startingLTC, int startingETH)
+        /*public void InitCustomer(int startingPLN, int startingBTC, int startingLTC, int startingETH)
         {
             myMarketManager.AddAccount("PLN", startingPLN);
             myMarketManager.AddAccount("BTC", startingBTC);
             myMarketManager.AddAccount("LTC", startingLTC);
             myMarketManager.AddAccount("ETH", startingETH);
-        }
+        }*/
         
         public string CurrencyName(int i)
         {
             return myMarketManager.GetCurrencyName(i);
         }
 
-        public string AccountName(int i)
+        /*public string AccountName(int i)
         {
             return myMarketManager.GetAccountName(i);
-        }
+        }*/
 
         public float PriceOfCurrency(int i)
         {
             return myMarketManager.GetCurrencyPrice(i);
         }
 
-        public float AccountBalance(int i)
+        /*public float AccountBalance(int i)
         {
             return myMarketManager.GetAccountBalance(i);
-        }
+        }*/
 
         public void ChangeCurrencyValues()
         {
@@ -81,17 +81,17 @@ namespace GitBay2.Presentation
 
         public void Buy(int amount, string cryptoName)
         {
-            myMarketManager.PLNExchange(-Convert.ToInt32(amount) * myMarketManager.GetPrice(cryptoName));
+            //myMarketManager.PLNExchange(-Convert.ToInt32(amount) * myMarketManager.GetPrice(cryptoName));
 
-            myMarketManager.CurrencyExchange(Convert.ToInt32(amount), cryptoName);
+            //myMarketManager.CurrencyExchange(Convert.ToInt32(amount), cryptoName);
             
         }
 
         public void Sell(int amount, string cryptoName)
         {
-            myMarketManager.PLNExchange(Convert.ToInt32(amount) * myMarketManager.GetPrice(cryptoName));
+            //myMarketManager.PLNExchange(Convert.ToInt32(amount) * myMarketManager.GetPrice(cryptoName));
 
-            myMarketManager.CurrencyExchange(-Convert.ToInt32(amount), cryptoName);
+           // myMarketManager.CurrencyExchange(-Convert.ToInt32(amount), cryptoName);
         }
     }
 }

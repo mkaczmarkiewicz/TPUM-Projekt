@@ -14,8 +14,8 @@ namespace GitBay2.Presentation
 
         public void InitMarket()
         {
-            model.IniCourses(model.btcCourse, model.ltcCourse, model.ethCourse);
-            model.InitCustomer(model.startingPLN, model.startingBTC, model.startingLTC, model.startingETH);            
+            model.IniCourses(250, 10, 99);
+           // model.InitCustomer(model.startingPLN, model.startingBTC, model.startingLTC, model.startingETH);            
         }
 
         public string FetchCurrencyName(int i)
@@ -23,20 +23,20 @@ namespace GitBay2.Presentation
             return model.CurrencyName(i);
         }
 
-        public string FetchAccountName(int i)
+       /* public string FetchAccountName(int i)
         {
             return model.AccountName(i);
-        }
+        }*/
 
         public float FetchPriceOfCurrency(int i)
         {
             return model.PriceOfCurrency(i);
         }
 
-        public float FetchAccountBalance(int i)
+        /*public float FetchAccountBalance(int i)
         {
             return model.AccountBalance(i);
-        }
+        }*/
 
         public void ChangeCurrencyValues()
         {

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GitBay2.Data;
+using Client.Data;
+using WebSocketSharp;
 
-namespace GitBay2.Logic
+namespace Client.Logic
 {
     internal class User : AUser
     {
@@ -13,11 +14,33 @@ namespace GitBay2.Logic
         public User()
         {
             accounts = new List<AAccount>();
+            SayHello();
+        }
+
+        public void SayHello()
+        {
+            using (WebSocket ws = new WebSocket("ws://127.0.0.1:7890/Echo"))
+            {
+               ws.OnMessage += Ws_OnMessage;
+
+               ws.Connect();
+              // ws.Send("Hello");
+            }
+        }
+
+        private static void Ws_OnMessage(object sender, MessageEventArgs e)
+        {
+            Console.WriteLine("Client: I received: " + e.Data);
         }
 
         override public void AddAccount(AAccount a)
         {
             accounts.Add(a);
+        }
+
+        override public void AddAccount(string name, float startingBalance)
+        {
+            accounts.Add(new Account(name, startingBalance));
         }
 
         override public AAccount GetAccount(string name)

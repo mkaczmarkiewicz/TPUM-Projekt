@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Client.Data
 {
-    public abstract class ClientAAccount
+    public abstract class AAccount
     {
         public abstract string GetName();
         public abstract float GetBalance();
         public abstract void ChangeBalance(float c);
 
-        public static ClientAAccount CreateAccount(string name, float startingBalance)
+        public static AAccount CreateAccount(string name, float startingBalance)
         {
-            return new ClientAccount(name, startingBalance);
+            return new Account(name, startingBalance);
         }
     }
 }

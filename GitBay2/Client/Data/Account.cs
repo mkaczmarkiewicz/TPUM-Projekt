@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Client.Data
 {
-    internal class ClientAccount : ClientAAccount
+    internal class Account : AAccount
     {
         string currencyName;
         float balance;
 
-        public ClientAccount(string name, float startingBalance)
+        public Account(string name, float startingBalance)
         {
             currencyName = name;
             balance = startingBalance;
@@ -32,5 +32,4 @@ namespace Client.Data
             return currencyName;
         }
     }
-}
 }
