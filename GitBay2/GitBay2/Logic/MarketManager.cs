@@ -18,7 +18,7 @@ namespace GitBay2.Logic
         public MarketManager()
         {
             currencies = new List<ACurrency>();
-            StartServer();
+            //StartServer();
         }
 
         public class Echo : WebSocketBehavior
@@ -30,17 +30,17 @@ namespace GitBay2.Logic
             }
         }
 
-        private void StartServer()
-        {
-            WebSocketServer wsserv = new WebSocketServer("ws://127.0.0.1:7890");
+        //private void StartServer()
+        //{
+        //    WebSocketServer wsserv = new WebSocketServer("ws://127.0.0.1:7890");
 
-            wsserv.AddWebSocketService<Echo>("/Echo");
+        //    wsserv.AddWebSocketService<Echo>("/Echo");
 
-            wsserv.Start();
-            Console.WriteLine("Server started at " + wsserv.Port);
-            Console.ReadLine();
-            wsserv.Stop();
-        }
+        //    wsserv.Start();
+        //    Console.WriteLine("Server started at " + wsserv.Port);
+        //    Console.ReadLine();
+        //    wsserv.Stop();
+        //}
 
         override public float GetPrice(string name)
         {

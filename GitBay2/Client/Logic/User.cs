@@ -24,7 +24,7 @@ namespace Client.Logic
                ws.OnMessage += Ws_OnMessage;
 
                ws.Connect();
-              // ws.Send("Hello");
+                ws.Send("Hello");
             }
         }
 

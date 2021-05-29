@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using System.Timers;
+using GitBay2.Logic;
 
 namespace GitBay2
 {
@@ -31,7 +32,8 @@ namespace GitBay2
         public MainWindow()
         {
             InitializeComponent();
-
+            var commMgr = new CommunicationManager(8080);
+            commMgr.Begin();
             viewModel = new ViewModel();
 
             viewModel.InitMarket();

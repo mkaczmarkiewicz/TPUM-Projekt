@@ -71,6 +71,8 @@
     <Compile Include="Data\AAccount.cs" />
     <Compile Include="Data\ACurrency.cs" />
     <Compile Include="Logic\AMarketManager.cs" />
+    <Compile Include="Logic\CommunicationManager.cs" />
+    <Compile Include="Logic\ICommunicationManager.cs" />
     <Compile Include="Logic\MarketManager.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
