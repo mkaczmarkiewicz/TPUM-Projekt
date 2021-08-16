@@ -31,9 +31,14 @@ namespace GitBay2
         
         public MainWindow()
         {
+            
             InitializeComponent();
-            var commMgr = new CommunicationManager(8080);
-            commMgr.Begin();
+            //var commMgr = new CommunicationManager(8080);
+            //commMgr.Begin();
+            /////
+            for (var i = 0; i < 10000; i++)
+            GitBayAsyncClient.StartClient();
+            Console.ReadLine();
             viewModel = new ViewModel();
 
             viewModel.InitMarket();

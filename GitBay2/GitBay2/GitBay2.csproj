@@ -80,6 +80,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\GitBayAsyncClient.cs" />
     <Compile Include="Presentation\Model.cs" />
     <Compile Include="Presentation\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -7,15 +7,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace GitBay2.ConsoleClient
+namespace GitBay2.Presentation
 {
-    public class GitBayAsyncClient
+    class GitBayAsyncClient
     {
         private const int port = 8080;
 
-        private Socket _client = null;
-
-        // ManualResetEvent instances signal completion.  
         private static ManualResetEvent connectDone =
             new ManualResetEvent(false);
         private static ManualResetEvent sendDone =
@@ -26,53 +23,46 @@ namespace GitBay2.ConsoleClient
         // The response from the remote device.  
         private static String response = String.Empty;
 
-        public void StartClient()
+        public static void StartClient()
         {
-            if (_client == null)
+            // Connect to a remote device.  
+            try
             {
+                // Establish the remote endpoint for the socket.  
+                // The name of the
+                // remote device is "host.contoso.com".  
+                IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
+                IPAddress ipAddress = ipHostInfo.AddressList[0];
+                IPEndPoint remoteEP = new IPEndPoint(ipAddress, port);
 
-                // Connect to a remote device.  
-                try
-                {
-                    // Establish the remote endpoint for the socket.  
-                    IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-                    IPAddress ipAddress = ipHostInfo.AddressList[0];
-                    IPEndPoint remoteEP = new IPEndPoint(ipAddress, port);
-
-                    // Create a TCP/IP socket.  
-                    _client = new Socket(ipAddress.AddressFamily,
-                        SocketType.Stream, ProtocolType.Tcp);
+                // Create a TCP/IP socket.  
+                var client = new Socket(ipAddress.AddressFamily,
+                    SocketType.Stream, ProtocolType.Tcp);
 
 
-                    // Connect to the remote endpoint.  
-                    _client.BeginConnect(remoteEP,
-                        new AsyncCallback(ConnectCallback), _client);
-                    connectDone.WaitOne();
-                    Console.WriteLine("Client connected.");
+                // Connect to the remote endpoint.  
+                client.BeginConnect(remoteEP,
+                    new AsyncCallback(ConnectCallback), client);
+                connectDone.WaitOne();
 
-                    // Send test data to the remote device.  
-                    Send(_client, "Test of new Account name");
-                    sendDone.WaitOne();
+                // Send test data to the remote device.  
+                Send(client, "This is a test<EOF>");
+                sendDone.WaitOne();
 
-                    // Receive the response from the remote device.  
-                    Receive(_client);
-                    receiveDone.WaitOne();
+                // Receive the response from the remote device.  
+                Receive(client);
+                receiveDone.WaitOne();
 
-                    // Write the response to the console.  
-                    Console.WriteLine("Response received : {0}", response);
+                // Write the response to the console.  
+                Console.WriteLine("Response received : {0}", response);
 
-                    // Release the socket.  
-                    _client.Shutdown(SocketShutdown.Both);
-                    _client.Close();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
+                // Release the socket.  
+                client.Shutdown(SocketShutdown.Both);
+                client.Close();
             }
-            else
+            catch (Exception e)
             {
-                Console.WriteLine("Client already connected.");
+                Console.WriteLine(e.ToString());
             }
         }
 

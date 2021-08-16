@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.WebSockets;
 
 namespace GitBay2.ConsoleClient
 {
@@ -6,8 +7,9 @@ namespace GitBay2.ConsoleClient
     {
         static void Main(string[] args)
         {
-            for(var i =0; i < 10000; i++)
-            GitBayAsyncClient.StartClient();
+            //for(var i =0; i < 10000; i++);
+            var client = new GitBayAsyncClient();
+            client.StartClient();
             Console.ReadLine();
         }
     }
